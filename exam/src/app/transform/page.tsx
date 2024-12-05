@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { fetchData, transformData } from "../handler/handler";
 
 type users = {
   firstName: string;
@@ -20,6 +21,14 @@ function TransformPage() {
     }
   ];
 
+  const onTransform = async () => {
+    const data = await fetchData();
+    const groupData = transformData(data);
+    console.log('data: ', data);
+    console.log('groupData: ', groupData);
+  }
+
+  onTransform();
 
   return (
     <div>

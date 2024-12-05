@@ -7,6 +7,8 @@ export default function Home() {
         <Link href="/market"><span className="border border-black p-2 rounded-lg text-[#006BA1] hover:bg-[#003f7d] hover:text-white">go to the market</span></Link>
         <Link href="/transform"><span className="border border-black p-2 rounded-lg text-[#006BA1] hover:bg-[#E32322] hover:text-white">go to the office</span></Link>
       </main>
+      <footer className="absolute right-1 bottom-0 opacity-50">developed by Phuriwat P.</footer>
     </div>
+    
   );
 }

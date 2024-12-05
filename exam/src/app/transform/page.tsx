@@ -67,13 +67,13 @@ function TransformPage() {
               back
             </Link>
           </div>
-          <div className="flex justify-end gap-2.5 mt-2.5 px-10">
-            <label htmlFor="limit">select limit: </label>
+          <div className="flex justify-end gap-2.5 mt-2.5 px-14">
+            <label htmlFor="limit">Select Limit: </label>
             <select
               id="limit"
               value={limit}
               onChange={handleLimitChange}
-              className="bg-[#f0f0f0] border border-[#000000]"
+              className="bg-[#f0f0f0] border border-[#000000] rounded-sm"
             >
               <option value={30}>30</option>
               <option value={50}>50</option>
@@ -82,15 +82,15 @@ function TransformPage() {
               <option value={300}>300</option>
             </select>
           </div>
-          <div className="flex justify-end gap-2.5 mt-2.5 px-10">
-            <span>total customer: {data.length}</span>
-            <span>total department: {groupData.length}</span>
+          <div className="flex flex-col mt-2.5 px-14">
+            <span className="self-end">Total Customer: {data.length}</span>
+            <span className="self-end">Total Department: {groupData.length}</span>
           </div>
           <div className="flex flex-row justify-center flex-wrap gap-2.5 mt-2.5 p-2.5">
             {groupData.map((item) => (
               <div
                 key={item.department}
-                className="mx-2.5 p-5 border flex flex-col bg-[#f0f0f0] border-[#f0f0f0] w-[400px]"
+                className="mx-2.5 my-2.5 p-5 border flex flex-col bg-[#f0f0f0] border-[#f0f0f0] w-[400px] rounded-xl"
               >
                 <span className="mb-3 border border-t-[#f0f0f0] border-b-black border-x-[#f0f0f0]">
                   Department: {item.department}

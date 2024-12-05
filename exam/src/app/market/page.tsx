@@ -92,7 +92,7 @@ function MarketPage() {
               <button
                 key={item.name}
                 onClick={() => moveToColumn(item)}
-                className="p-2.5 border border-[#f0f0f0] cursor-pointer"
+                className="p-2.5 border border-[#f0f0f0] cursor-pointer rounded-xl"
               >
                 {item.name}
               </button>
@@ -110,7 +110,7 @@ function MarketPage() {
               <button
                 key={item.name}
                 onClick={() => handleColumnClick(item)}
-                className="p-2.5 mx-2.5 border border-[#f0f0f0] bg-[#d45e5e] text-white cursor-pointer sm-380:text-[3vw] sm-500:text-[2.5vw]"
+                className="p-2.5 mx-2.5 border border-[#f0f0f0] bg-[#d45e5e] text-white cursor-pointer sm-380:text-[3vw] sm-500:text-[2.5vw] rounded-xl"
               >
                 {item.name}
               </button>
@@ -128,7 +128,7 @@ function MarketPage() {
               <button
                 key={item.name}
                 onClick={() => handleColumnClick(item)}
-                className="p-2.5 mx-2.5 border border-[#f0f0f0] bg-[#5fc35f] text-white cursor-pointer sm-380:text-[3vw] sm-500:text-[2.5vw]"
+                className="p-2.5 mx-2.5 border border-[#f0f0f0] bg-[#5fc35f] text-white cursor-pointer sm-380:text-[3vw] sm-500:text-[2.5vw] rounded-xl"
               >
                 {item.name}
               </button>

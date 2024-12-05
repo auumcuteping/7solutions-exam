@@ -32,8 +32,8 @@ describe("MarketPage", () => {
       push: mockPush,
     });
   });
-  
-  test("renders the back button",async () => {
+
+  test("renders the back button", async () => {
     render(<MarketPage />);
 
     const backLink = screen.getByText("back");
@@ -44,7 +44,7 @@ describe("MarketPage", () => {
     fireEvent.click(backButton);
     mockPush("/");
     expect(mockPush).toHaveBeenCalledWith("/");
-  })
+  });
 
   test("moves an item to the correct column when clicked", async () => {
     render(<MarketPage />);

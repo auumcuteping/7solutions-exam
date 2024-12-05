@@ -1,31 +1,18 @@
 import axios from "axios";
-import { HeadersUsers, User } from "../models/user-models";
-
-interface GroupUsers {
-  department: string;
-  male: number;
-  female: number;
-  ageRange: string;
-  hair: Hair[];
-  addressUser: Address[];
-}
-
-interface Address {
-  fullName: string;
-  postalCode: string;
-}
-
-interface Hair {
-  color: string;
-  count: number;
-}
+import {
+  Address,
+  GroupUsers,
+  Hair,
+  HeadersUsers,
+  User,
+} from "../models/user-models";
 
 export const fetchData = async (limit: number): Promise<User[]> => {
   try {
     const res = await axios.get<HeadersUsers>("https://dummyjson.com/users", {
       params: {
         limit: limit,
-      }
+      },
     });
     return res.data.users;
   } catch (error) {

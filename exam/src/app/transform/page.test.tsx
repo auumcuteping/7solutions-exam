@@ -9,7 +9,6 @@ jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
-
 // Mock the functions from handler module
 jest.mock("../handler/handler", () => ({
   fetchData: jest.fn(),
@@ -228,8 +227,7 @@ describe("TransformPage", () => {
     expect(screen.getByText("Female: 1")).toBeInTheDocument();
   });
 
-  test("renders the back button",async () => {
-
+  test("renders the back button", async () => {
     render(<TransformPage />);
     expect(screen.getByTestId("loader")).toBeInTheDocument();
 
@@ -245,5 +243,5 @@ describe("TransformPage", () => {
     fireEvent.click(backButton);
     mockPush("/");
     expect(mockPush).toHaveBeenCalledWith("/");
-  })
+  });
 });

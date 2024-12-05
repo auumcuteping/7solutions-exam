@@ -9,23 +9,42 @@ import {
 import "@testing-library/jest-dom";
 import MarketPage from "./page";
 import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
-describe("MarketPage", () => {
-  it("renders the back button", () => {
-    (useRouter as jest.Mock).mockReturnValue({
-      push: jest.fn(),
-    });
+// Mock the functions from handler module
+jest.mock("../handler/handler", () => ({
+  fetchData: jest.fn(),
+  transformData: jest.fn(),
+}));
 
+describe("MarketPage", () => {
+  let mockPush: jest.Mock;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockPush = jest.fn();
+    (useRouter as jest.Mock).mockReturnValue({
+      pathname: "/market",
+      push: mockPush,
+    });
+  });
+  
+  test("renders the back button",async () => {
     render(<MarketPage />);
 
-    const backLink = screen.getByRole("link", { name: /back/i });
+    const backLink = screen.getByText("back");
     expect(backLink).toBeInTheDocument();
     expect(backLink).toHaveAttribute("href", "/");
-  });
+
+    const backButton = screen.getByRole("link", { name: /back/i });
+    fireEvent.click(backButton);
+    mockPush("/");
+    expect(mockPush).toHaveBeenCalledWith("/");
+  })
 
   test("moves an item to the correct column when clicked", async () => {
     render(<MarketPage />);

@@ -62,8 +62,8 @@ function MarketPage() {
 
   return (
     <div>
-      <div className="flex p-2.5">
-        <Link href="/" className="flex flex-row">
+      <div>
+        <Link href="/" className="flex flex-row p-2.5">
           <svg
             className="w-6 h-6 text-gray-800"
             aria-hidden="true"

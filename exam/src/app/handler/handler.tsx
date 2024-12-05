@@ -20,9 +20,13 @@ interface Hair {
   count: number;
 }
 
-export const fetchData = async (): Promise<User[]> => {
+export const fetchData = async (limit: number): Promise<User[]> => {
   try {
-    const res = await axios.get<HeadersUsers>("https://dummyjson.com/users");
+    const res = await axios.get<HeadersUsers>("https://dummyjson.com/users", {
+      params: {
+        limit: limit,
+      }
+    });
     return res.data.users;
   } catch (error) {
     console.error("Error fetching data:", error);

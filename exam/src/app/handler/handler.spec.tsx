@@ -86,10 +86,10 @@ describe("fetchData", () => {
       };
       mockedAxios.get.mockResolvedValueOnce(mockResponse);
 
-    const result = await fetchData();
+    const result = await fetchData(1);
 
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
-    expect(mockedAxios.get).toHaveBeenCalledWith("https://dummyjson.com/users");
+    expect(mockedAxios.get).toHaveBeenCalledWith("https://dummyjson.com/users", {"params": {"limit": 1}});
     expect(result).toEqual(mockUsers);
   });
 
@@ -99,10 +99,10 @@ describe("fetchData", () => {
 
     const consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {}); // Suppress console.error
 
-    await expect(fetchData()).rejects.toThrow("Network Error");
+    await expect(fetchData(2)).rejects.toThrow("Network Error");
 
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
-    expect(mockedAxios.get).toHaveBeenCalledWith("https://dummyjson.com/users");
+    expect(mockedAxios.get).toHaveBeenCalledWith("https://dummyjson.com/users", {"params": {"limit": 2}});
 
     consoleSpy.mockRestore(); // Restore original console.error
   });

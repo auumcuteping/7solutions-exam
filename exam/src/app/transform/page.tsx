@@ -26,7 +26,6 @@ function TransformPage() {
         setLoading(false);
       }
     };
-
     fetchAndTransformData(limit);
   };
   useEffect(() => {

@@ -244,4 +244,14 @@ describe("TransformPage", () => {
     mockPush("/");
     expect(mockPush).toHaveBeenCalledWith("/");
   });
+
+  test('select limit', async () => {
+    render(<TransformPage />);
+    await waitFor(() => {
+      expect(screen.queryByTestId("loader")).not.toBeInTheDocument();
+    });
+    const options = screen.getAllByRole('option');
+    const values = options.map(option => option.textContent);
+    expect(values).toEqual(['30', '50', '100', '200', '300']);
+  });
 });
